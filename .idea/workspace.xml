@@ -2,84 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5d28db5-2e6e-4d64-ae32-89f4e706c3d4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/users/2019/01/10/Screen_Shot_2018-10-25_at_10.30.07_AM.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/mysite.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/authentication.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/static/css/base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/account/dashboard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/account/edit.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/account/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/account/register.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/account/register_done.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/logged_out.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/password_change_done.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/password_change_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/password_reset_complete.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/password_reset_confirm.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/password_reset_done.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/password_reset_email.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/templates/registration/password_reset_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/feeds.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/migrations/0002_comment.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/migrations/0003_post_tags.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/migrations/0004_auto_20190108_2040.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/migrations/0005_auto_20190108_2101.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/sitemaps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/static/css/blog.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/templates/blog/post/detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/templates/blog/post/latest_posts.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/templates/blog/post/list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/templates/blog/post/search.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/templates/blog/post/share.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/templates/pagination.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/templatetags/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/templatetags/blog_tags.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/nginx.conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/uwsgi.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/manage.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysite/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysite/settings.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysite/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysite/wsgi.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/templates/polls/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/polls/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -147,8 +70,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="88" column="10" lean-forward="false" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+            <state relative-caret-position="244">
+              <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -434,16 +357,15 @@
       <workItem from="1546785095228" duration="1006000" />
       <workItem from="1546813357203" duration="123000" />
       <workItem from="1546813499004" duration="15173000" />
-      <workItem from="1547160623312" duration="8688000" />
+      <workItem from="1547160623312" duration="8737000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24990000" />
+    <option name="totallyTimeSpent" value="25039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="31" width="1241" height="716" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -456,7 +378,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39774558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39774558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25354463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -869,8 +791,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="88" column="10" lean-forward="false" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+        <state relative-caret-position="244">
+          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
           <folding />
         </state>
       </provider>
