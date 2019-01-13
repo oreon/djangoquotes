@@ -26,7 +26,7 @@ SECRET_KEY = '*5c(_=23@_t-he^c!5dl0!*cjpo007f(wpf85lch4czv@y9@r2'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['quotesdev.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['quotesdev.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1','mysite.com']
 
 
 EMAIL_HOST = 'smtp.gmail.com'
