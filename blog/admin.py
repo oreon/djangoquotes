@@ -25,7 +25,7 @@ class PostAdmin(admin.ModelAdmin):
     #raw_id_fields = ('author',)
     date_hierarchy = 'publish'
     ordering = ('status', 'publish')
-    fields = ('title', 'slug', 'body', 'tags', 'status')
+    fields = ('title', 'slug', 'body', 'explanation', 'tags', 'status', 'link',)
 
     def save_model(self, request, obj, form, change):
         print(request.user)

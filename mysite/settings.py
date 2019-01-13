@@ -26,7 +26,7 @@ SECRET_KEY = '*5c(_=23@_t-he^c!5dl0!*cjpo007f(wpf85lch4czv@y9@r2'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['quotesdev.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['quotesdev.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
 
 
 EMAIL_HOST = 'smtp.gmail.com'
@@ -37,9 +37,10 @@ EMAIL_USE_TLS = True
 
 SITE_ID = 1
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_BROWSER_XSS_FILTER = True
+#
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+# SECURE_BROWSER_XSS_FILTER = True
 
 # Application definition
 
@@ -165,3 +166,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'

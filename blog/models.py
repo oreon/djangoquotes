@@ -33,6 +33,11 @@ class Post(models.Model):
     status = models.CharField(max_length=10,
                               choices=STATUS_CHOICES,
                               default='published')
+
+    explanation = models.TextField(blank=True, null=True)
+    link = models.CharField(max_length=250,blank=True, null=True)
+
+
     tags = TaggableManager()
 
     def get_absolute_url(self):
