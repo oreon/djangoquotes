@@ -28,9 +28,20 @@ class PostAdmin(admin.ModelAdmin):
     fields = ('title', 'slug', 'body', 'explanation', 'tags', 'status', 'link',)
 
     def save_model(self, request, obj, form, change):
+        def addHighlight(s):
+            if "ਅੰਗ" in s or "Raag" in s : return ""
+            if "||" in s : return "*" + s + "*"
+            return "**" + s + "**" if ("॥" in s and not "**" in s) else s
+
         print(request.user)
         #if not obj.author.id:
         obj.author = request.user
+        lines = obj.body.splitlines()
+        new_list = [addHighlight(i) for i in lines ]
+
+        obj.body = "\n".join(line.strip() for line in new_list)
+
+        print(obj.body)
         #obj.last_modified_by = request.user
         obj.save()
 
