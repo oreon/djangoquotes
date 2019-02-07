@@ -8,3 +8,6 @@ django-social-share
 social-auth-app-django==2.1.0
 markdown
 pillow
+sorl-thumbnail==12.4.1
+django-kronos
+

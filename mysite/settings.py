@@ -26,12 +26,12 @@ SECRET_KEY = '*5c(_=23@_t-he^c!5dl0!*cjpo007f(wpf85lch4czv@y9@r2'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['quotesdev.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1','mysite.com']
+ALLOWED_HOSTS = ['quotes-dev.us-west-2.elasticbeanstalk.com','72.31.19.188', 'localhost','127.0.0.1','mysite.com']
 
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'singhjess@gmail.com'
-EMAIL_HOST_PASSWORD = 'drazil76'
+EMAIL_HOST_USER = 'oreonconsultancy@gmail.com'
+EMAIL_HOST_PASSWORD = 'OC_gmail@321'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -48,8 +48,12 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'polls.apps.PollsConfig',
     'blog.apps.BlogConfig',
+    'images.apps.ImagesConfig',
     'taggit',
     'social_django',
+    'sorl.thumbnail',
+    'kronos',
+ #   'memcache_status',
     'django.contrib.postgres',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -67,7 +71,9 @@ INSTALLED_APPS += ['django_social_share']
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    #'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    #'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -143,6 +149,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': '127.0.0.1:11211',
+#     }
+# }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -167,3 +185,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = (
+    os.path.join(BASE_DIR, 'media')
+)
+
+
+# CACHE_MIDDLEWARE_ALIAS = 'default'
+# CACHE_MIDDLEWARE_SECONDS = 60 * 15  # 15 minutes
+# CACHE_MIDDLEWARE_KEY_PREFIX = 'squotes'

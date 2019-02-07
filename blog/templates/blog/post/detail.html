@@ -8,10 +8,21 @@
 <p class="date">
     Published {{ post.publish }} by {{ post.author }}
 </p>
+<span class="step-links">
+    {% if prev %}
+      <a href="{{ prev.get_absolute_url }}" class="btn btn-primary">Previous</a>
+    {% endif %}
+    <span class="current">
+
+    </span>
+      {% if next %}
+       <a href="{{ next.get_absolute_url }}" class="btn btn-primary">Next</a>
+      {% endif %}
+</span>
+
 <div style="background-color: #fef9f9">
 {{ post.body|markdown }}
 </div>
-
 
 {% if post.explanation %}
 <hr/>
@@ -23,6 +34,41 @@
 {% if post.link %}
 <a href="{{post.link}}"> Link To Shabad </a>
 {% endif %}
+{% with total_likes=post.users_like.count users_like=post.users_like.all %}
+<div class="post-info">
+    <div>
+        <span class="count">
+         <span class="total">{{ total_likes }}</span>
+         like{{ total_likes|pluralize }}
+        </span>
+        <span class="count">
+          {{ total_views }} view{{ total_views|pluralize }}
+        </span>
+        <a href="#" data-id="{{ post.id }}" data-action="{% if request.user in users_like %}un{% endif %}like" class="like button">
+            {% if request.user not in users_like %}
+            Like
+            {% else %}
+            Unlike
+            {% endif %}
+        </a>
+    </div>
+    {{ post.description|linebreaks }}
+</div>
+<div class="post-likes">
+    {% for user in post.users_like.all %}
+    <div>
+        <img src="{{ user.profile.photo.url }}">
+        <p>{{ user.first_name }}</p>
+    </div>
+    {% empty %}
+    Nobody likes this post yet.
+    {% endfor %}
+</div>
+{% endwith %}
+
+
+
+
 
 {% for comment in comments %}
 <div class="comment">
@@ -67,4 +113,34 @@ There are no similar posts yet.
 <div class="sharethis-inline-share-buttons"></div>
 
 
+{% endblock %}
+
+{% block domready %}
+$('a.like').click(function(e){
+    e.preventDefault();
+    $.post('{% url "blog:like" %}',
+    {
+        id: $(this).data('id'),
+        action: $(this).data('action')
+    },
+    function(data){
+        if (data['status'] == 'ok')
+        {
+        var previous_action = $('a.like').data('action');
+
+        // toggle data-action
+        $('a.like').data('action', previous_action == 'like' ?
+        'unlike' : 'like');
+        // toggle link text
+        $('a.like').text(previous_action == 'like' ? 'Unlike' :
+        'Like');
+
+        // update total likes
+        var previous_likes = parseInt($('span.count .total').text());
+        $('span.count .total').text(previous_action == 'like' ?
+        previous_likes + 1 : previous_likes - 1);
+    }
+}
+);
+});
 {% endblock %}

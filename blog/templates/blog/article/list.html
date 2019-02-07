@@ -4,7 +4,7 @@
 {% block title %}My Blog{% endblock %}
 
 {% block content %}
-<h1>Quotes</h1>
+<h1>Articles </h1>
 {% if tag %}
 <h2>Posts tagged with "{{ tag.name }}"</h2>
 {% endif %}
@@ -28,6 +28,6 @@
 {{ post.body|markdown|truncatewords_html:30 }}
 {% endfor %}
 
-<!--{% include "pagination.html" with page=page_obj %}-->
-{% include "pagination.html" with page=posts %}
+{% include "pagination.html" with page=page_obj %}
+
 {% endblock %}

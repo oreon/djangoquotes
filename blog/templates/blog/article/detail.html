@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load blog_tags %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ article.title }}</h1>
+<p class="date">
+    Published {{ article.publish }} by {{ article.author }}
+</p>
+<div style="background-color: #fef9f9">
+{{ article.body|markdown }}
+</div>
+
+
+
+
+
+{% endblock %}

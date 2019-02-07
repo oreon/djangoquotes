@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load blog_tags %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+</p>
+<div style="background-color: #fef9f9">
+{{ post.body|markdown }}
+</div>
+
+
+<audio controls>
+    <source src="{{ post.link.url }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+{% endblock %}

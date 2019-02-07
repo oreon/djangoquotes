@@ -1,0 +1,14 @@
+{% load blog_tags %}
+
+New Conent since yesterday
+
+{% for post in posts %}
+<h2>
+    <a href="http://mysite.com{{ post.get_absolute_url }}">
+        {{ post.title }}
+    </a>
+</h2>
+<div style="margin: 4px">
+{{ post.body|markdown|truncatewords_html:150 }}
+</div>
+{% endfor %}

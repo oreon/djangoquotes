@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load blog_tags %}
+
+{% block title %}Shabads {% endblock %}
+
+{% block content %}
+<h1>Shabads  </h1>
+<ul>
+{% for post in posts %}
+
+    <li>
+        <a href="{{ post.get_absolute_url }}" > {{post.title}}  </a>
+<audio controls  >
+    <source src="{{ post.link.url }}" ended="nextAudioNode.play();">
+</audio>
+    </li>
+{% endfor %}
+</ul>
+{% include "pagination.html" with page=page_obj %}
+
+{% endblock %}

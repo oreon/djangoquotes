@@ -2,17 +2,21 @@
 
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Comment
+from .models import *
 from .forms import EmailPostForm, CommentForm, SearchForm
 
 from django.core.paginator import Paginator, EmptyPage, \
     PageNotAnInteger
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from taggit.models import Tag
 from django.db.models import Count
 
 
 from django.contrib.postgres.search import SearchVector,SearchQuery, SearchRank
+
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 
 
 def post_search(request):
@@ -35,8 +39,9 @@ def post_search(request):
                    'query': query,
                    'results': results})
 
-def post_list(request, tag_slug=None):
-    object_list = Post.published.all()
+def post_list(request, tag_slug=None, only_fav= 0):
+
+    object_list = Post.published.filter(users_like = request.user) if only_fav == 1 else Post.published.all()
     tag = None
 
     if tag_slug:
@@ -60,11 +65,83 @@ def post_list(request, tag_slug=None):
                    'posts': posts,
                    'tag': tag})
 
+
+
+@login_required
+@require_POST
+def post_like(request):
+    post_id = request.POST.get('id')
+    action = request.POST.get('action')
+    if post_id and action:
+        try:
+            post = Post.objects.get(id=post_id)
+            if action == 'like':
+                post.users_like.add(request.user)
+            else:
+                post.users_like.remove(request.user)
+            return JsonResponse({'status':'ok'})
+        except:
+            pass
+    return JsonResponse({'status':'ko'})
+
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
     paginate_by = 3
     template_name = 'blog/post/list.html'
+
+
+class ArticleListView(ListView):
+    queryset = Article.published.all()
+    context_object_name = 'posts'
+    paginate_by = 3
+    template_name = 'blog/article/list.html'
+
+class ArticleDetail(DetailView):
+    model = Article
+    template_name = 'blog/article/detail.html'
+    context_object_name = 'article'
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(slug='nn')
+
+    def get_object(self, queryset=None):
+        print (self.get_slug_field())
+        print (Article.objects.filter(slug='nn') )
+        return Article.objects.filter(slug='nn')
+
+class ShabadListView(ListView):
+    queryset = Shabad.published.all()
+    context_object_name = 'posts'
+    paginate_by = 5
+    template_name = 'blog/shabad/list.html'
+
+def article_detail(request, year, month, day, slug):
+    post = get_object_or_404(Article, slug=slug,
+                             status='published',
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day)
+
+    print(post)
+
+    return render(request,
+                  'blog/article/detail.html',
+                  {'article': post,})
+
+
+def shabad_detail(request, year, month, day, slug):
+    post = get_object_or_404(Shabad, slug=slug,
+                             status='published',
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day)
+
+    return render(request,
+                  'blog/shabad/detail.html',
+                  {'post': post,})
+
 
 
 def post_detail(request, year, month, day, post):
@@ -99,9 +176,14 @@ def post_detail(request, year, month, day, post):
     similar_posts = similar_posts.annotate(same_tags=Count('tags')) \
                         .order_by('-same_tags','-publish')[:4]
 
+    next = Post.objects.filter( publish__gt=post.publish).first()
+    prev = Post.objects.filter( publish__lt=post.publish).first()
+
     return render(request,
                   'blog/post/detail.html',
                   {'post': post,
+                   'next': next,
+                   'prev': prev,
                    'comments': comments,
                    'new_comment': new_comment,
                    'comment_form': comment_form,
