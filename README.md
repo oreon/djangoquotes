@@ -1,5 +1,6 @@
 # djangoquotes
 DB related changes:
+
     sudo -u postgres psql
     create database blog;
     CREATE USER blog WITH PASSWORD 'blog';
