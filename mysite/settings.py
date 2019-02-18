@@ -121,10 +121,11 @@ if 'RDS_HOSTNAME' in os.environ:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'blog',
             'USER': 'blog',
             'PASSWORD': 'blog',
+            'HOST': 'localhost'
         }
     }
 
