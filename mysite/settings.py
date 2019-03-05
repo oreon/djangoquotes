@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'social_django',
     'sorl.thumbnail',
     'kronos',
+    'rest_framework',
  #   'memcache_status',
     'django.contrib.postgres',
     'django.contrib.sites',

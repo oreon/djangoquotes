@@ -45,7 +45,7 @@ class PostAdmin(MyAdmin):
     #raw_id_fields = ('author',)
     date_hierarchy = 'publish'
     ordering = ('status', 'publish')
-    fields = ('title', 'slug', 'body', 'explanation', 'tags', 'status', 'link',)
+    fields = ('title', 'slug', 'body', 'explanation', 'tags', 'status', 'page',)
 
     # def save_model(self, request, obj, form, change):
     #     def addHighlight(s):

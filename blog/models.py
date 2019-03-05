@@ -10,6 +10,13 @@ from taggit.managers import TaggableManager
 from django.conf import settings
 from django.utils.text import slugify
 
+from textblob import TextBlob
+
+# import nltk
+# nltk.download('brown')
+
+
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager,
@@ -51,6 +58,32 @@ class ContentBase(models.Model):
     def __str__(self):
         return self.title
 
+numbersDict = {"੧":'1', "੨": "2" , "੩": "3" ,"੨": "2" , "੪": "4"  ,  "੫" : "5", "੬": "6",
+               "੭": "7" , "੮": "4"  ,  "੯" : "5", "੦": "0"}
+
+
+def  findPage(s):
+    lines = s.splitlines()
+    for s in lines:
+        if "ਅੰਗ" in s or "Raag" in s:
+            l = s.split()
+            page = l[l.index('ਅੰਗ') + 1]
+            trsPage = [numbersDict.get(p) for p in page]
+            return int(''.join(trsPage))
+
+def findInfo(s): return next( (x for x in s.splitlines() if x.startswith("Raag")) , "")
+
+def findTags(s):
+    phrases =  TextBlob(s).noun_phrases
+    return phrases
+
+def addHighlight(s):
+    if "ਅੰਗ" in s or "Raag" in s:
+        return ""
+    if "||" in s : return "*" + s + "*"
+    return "**" + s + "**" if ("॥" in s and not "**" in s) else s
+
+LNK_URL = "https://www.searchgurbani.com/guru-granth-sahib/ang/"
 
 class Post(ContentBase):
 
@@ -58,22 +91,21 @@ class Post(ContentBase):
         if not self.slug:
             self.slug = slugify(self.title)
 
-        def addHighlight(s):
-            if "ਅੰਗ" in s or "Raag" in s : return ""
-            if "||" in s : return "*" + s + "*"
-            return "**" + s + "**" if ("॥" in s and not "**" in s) else s
+        if not self.page:
+            self.page = findPage(self.body)
+        self.info = findInfo(self.body)
 
-        #super(PostAdmin, self).save_model(request, obj, form, change)
-
-        lines = self.body.splitlines()
-        new_list = [addHighlight(i) for i in lines ]
+        new_list = [addHighlight(i) for i in self.body.splitlines() ]
         self.body = "\n".join(line.strip() for line in new_list)
-
 
         super(Post, self).save(*args, **kwargs)
 
+        if not self.tags:
+            self.tags = findTags(self.body)
+
+
     explanation = models.TextField(blank=True, null=True)
-    link = models.CharField(max_length=250,blank=True, null=True)
+    page = models.IntegerField(blank=True, null=True)
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
                                related_name='blog_posts',
@@ -83,6 +115,8 @@ class Post(ContentBase):
                                         related_name='posts_liked',
                                         blank=True)
 
+    info = models.CharField(max_length=250)
+
     tags = TaggableManager(blank=True)
 
     def get_absolute_url(self):
@@ -91,6 +125,9 @@ class Post(ContentBase):
                              self.publish.month,
                              self.publish.day,
                              self.slug])
+
+    def get_link(self):
+        return LNK_URL + str(self.page) if self.page else ""
 
     class Meta:
         ordering = ('-publish',)
