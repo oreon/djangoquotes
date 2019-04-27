@@ -115,7 +115,7 @@ class Post(ContentBase):
                                         related_name='posts_liked',
                                         blank=True)
 
-    info = models.CharField(max_length=250)
+    info = models.CharField(max_length=250, blank=True)
 
     tags = TaggableManager(blank=True)
 
