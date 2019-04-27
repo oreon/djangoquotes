@@ -1,6 +1,9 @@
 from mixer.backend.django import mixer
 import pytest
 from ..models import *
+from rest_framework.test import APIClient
+
+
 
 s = '''
 ਨਿਰਮਲ ਸਬਦੁ ਨਿਰਮਲ ਹੈ ਬਾਣੀ ॥
@@ -36,10 +39,28 @@ Raag Maajh Guru Amar Das
 @pytest.fixture(scope='session')
 def django_db_setup(django_db_setup, django_db_blocker):
     with django_db_blocker.unblock():
-        mixer.blend('blog.Post', body=s)
+        mixer.blend('blog.Post', body=s, title="wahguru")
+        u = mixer.blend('auth.User', username = 'foo',password = 'bar', is_staff=True)
+        client = APIClient()
+        x = User.objects.first().username
+        client.force_authenticate(user=u)
+        #client.login(username=x, password='bar')
+
+# @pytest.fixture(scope='session')
+# def user():
+#     #token = Token.objects.get(user__username='foo')
+
 
 def Xtest_tags():
     print(findTags(s))
+
+
+
+@pytest.mark.django_db
+def test_status_code(client):
+    #print ( client.get('/api/v1/quotes/1').body )
+    assert client.get('/api/v1/quotes/1').status_code == 200
+    #assert client.patch('/api/v1/quotes/1', {'page': 290}).status_code == 200
 
 
 @pytest.mark.django_db

@@ -22,10 +22,23 @@ from blog.views import  *
 from django.conf import settings
 from django.conf.urls.static import static
 from blog.api import router
+from rest_framework_simplejwt import views as jwt_views
 
 sitemaps = {
     'posts': PostSitemap,
 }
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
+
+class HelloView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        content = {'message': 'Hello, World!'}
+        return Response(content)
 
 urlpatterns = [
     path('account/', include('account.urls')),
@@ -40,7 +53,10 @@ urlpatterns = [
          name='django.contrib.sitemaps.views.sitemap'),
     path('', post_list),
 
+    path('hello/', HelloView.as_view(), name='hello'),
     path('api/v1/', include(router.urls)),
+    # path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     # static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ]
 
