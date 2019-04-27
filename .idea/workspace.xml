@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a5d28db5-2e6e-4d64-ae32-89f4e706c3d4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polls/views.py" afterPath="$PROJECT_DIR$/polls/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -465,7 +464,7 @@
       <workItem from="1551998260176" duration="4764000" />
       <workItem from="1553205052878" duration="6076000" />
       <workItem from="1553702191464" duration="5059000" />
-      <workItem from="1556386007867" duration="2123000" />
+      <workItem from="1556386007867" duration="2175000" />
     </task>
     <task id="LOCAL-00001" summary="added requirements">
       <created>1547246558066</created>
@@ -552,7 +551,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133267000" />
+    <option name="totallyTimeSpent" value="133319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="30" width="1241" height="716" extended-state="0" />
