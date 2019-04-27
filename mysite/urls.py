@@ -22,7 +22,7 @@ from blog.views import  *
 from django.conf import settings
 from django.conf.urls.static import static
 from blog.api import router
-from rest_framework_simplejwt import views as jwt_views
+#from rest_framework_simplejwt import views as jwt_views
 
 sitemaps = {
     'posts': PostSitemap,
