@@ -90,3 +90,4 @@ db.sqlite3
 # Elastic Beanstalk Files
 
 media/
+venv/

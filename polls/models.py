@@ -3,16 +3,14 @@ from django.db import models
 # Create your models here.
 
 from django.db import models
-import numpy as np
+#import numpy as np
 import datetime as dt
 
-
-
 class Client(models.Model):
-    name =  models.CharField( max_length=50)
+    name = models.CharField(max_length=50)
     email = models.EmailField()
-    hpd = models.DecimalField(max_digits=3,decimal_places=1)
-    rate = models.DecimalField(max_digits=5,decimal_places=1)
+    hpd = models.DecimalField(max_digits=3, decimal_places=1)
+    rate = models.DecimalField(max_digits=5, decimal_places=1)
 
 
 
@@ -24,8 +22,8 @@ class Order(models.Model):
     hours = models.DecimalField(max_digits=5,decimal_places=1)
     absences = models.IntegerField(default=0)
 
-    def weekDays(self):
-        return np.busday_count( self.fromDate.date(), self.toDate.date() ) - self.absences
+    # def weekDays(self):
+    #     return np.busday_count( self.fromDate.date(), self.toDate.date() ) - self.absences
 
     def totalHours(self): return self.weekDays() * self.client.hpd
 

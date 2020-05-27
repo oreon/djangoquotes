@@ -10,4 +10,9 @@ markdown
 pillow
 sorl-thumbnail==12.4.1
 django-kronos
+pytest-django
+django-rest-framework
+djangorestframework-jwt
+mixer
+textblob
 
